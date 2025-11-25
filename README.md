@@ -72,6 +72,7 @@ VITE_SUPABASE_ANON_KEY=anon_key_aqui
 ## Scripts úteis
 
 ```bash
+powershell -ExecutionPolicy Bypass -NoProfile -Command "npm run dev"
 npm run dev       # roda em modo desenvolvimento (Vite)
 npm run build     # gera build de produção
 npm run preview   # testa o build localmente
@@ -127,3 +128,4 @@ Contribuições são bem-vindas. Sugestão de fluxo:
 1. Fork este projeto.
 2. Crie uma branch: `feature/nome-da-feature`.
 3. Abra um Pull Request descrevendo as mudanças.
+
