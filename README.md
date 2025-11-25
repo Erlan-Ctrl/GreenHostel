@@ -1,73 +1,129 @@
-# Welcome to your Lovable project
+# GreenHostel
 
-## Project info
+> Front-end do GreenHostel — site/app para gerenciar reservas e informações de um hostel, feito com foco em performance e experiência mobile.
 
-**URL**: https://lovable.dev/projects/4bd37c65-d6b9-489f-b3ff-4395e6ec76cb
+---
 
-## How can I edit this code?
+## Visão geral
 
-There are several ways of editing your application.
+GreenHostel é um projeto front-end moderno criado para demonstrar uma interface leve e responsiva para um hostel. Ele foi gerado a partir de um template Lovable e utiliza um stack moderno (Vite + React + TypeScript + Tailwind) com integração a um backend Supabase (pasta `supabase` no repositório).
 
-**Use Lovable**
+O repositório contém arquivos de configuração para ferramentas modernas (inclui `bun.lockb`), e foi pensado para desenvolvimento rápido e deploy em plataformas estáticas ou serverless.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4bd37c65-d6b9-489f-b3ff-4395e6ec76cb) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tecnologias
 
-**Use your preferred IDE**
+* Vite
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn-ui (componentes)
+* Supabase (backend / autenticação / banco)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+> As tecnologias acima foram detectadas no repositório.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Pré-requisitos
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* Node.js (v16+) ou Bun (se preferir)
+* Git
+* Conta/configuração do Supabase (se usar as funções de backend)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Instalação (local)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/Erlan-Ctrl/GreenHostel.git
+cd GreenHostel
 ```
 
-**Edit a file directly in GitHub**
+2. Instale as dependências (escolha uma):
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Com npm/yarn:
 
-**Use GitHub Codespaces**
+```bash
+npm install
+# ou
+# yarn
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Com Bun (se for usar Bun):
 
-## What technologies are used for this project?
+```bash
+bun install
+```
 
-This project is built with:
+3. Crie um arquivo `.env` baseado nas variáveis necessárias (ex.: variáveis do Supabase). Exemplo mínimo:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+VITE_SUPABASE_URL=https://seu-project.supabase.co
+VITE_SUPABASE_ANON_KEY=anon_key_aqui
+```
 
-## How can I deploy this project?
+> O repositório já contém uma pasta `supabase` para referência de integração.
 
-Simply open [Lovable](https://lovable.dev/projects/4bd37c65-d6b9-489f-b3ff-4395e6ec76cb) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Scripts úteis
 
-Yes, you can!
+```bash
+npm run dev       # roda em modo desenvolvimento (Vite)
+npm run build     # gera build de produção
+npm run preview   # testa o build localmente
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+(Se estiver usando Bun, os mesmos scripts podem ser executados com `bun run <script>`.)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## Estrutura do projeto (resumo)
+
+* `src/` — código fonte React + TS
+* `index.html` — ponto de entrada
+* `supabase/` — arquivos/SQL/config relacionados ao Supabase
+* `tailwind.config.ts` — configuração do Tailwind
+* `vite.config.ts` — configuração do Vite
+
+> Estrutura confirmada no repositório.
+
+---
+
+## Integração com Supabase
+
+Se o projeto utiliza Supabase para dados/autenticação:
+
+1. Crie um projeto no Supabase.
+2. Copie a `URL` e `ANON KEY` para o `.env` (ex.: `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`).
+3. Ajuste as rotas/nomes de tabelas conforme o SQL na pasta `supabase` (se houver).
+
+---
+
+## Deploy
+
+O projeto é compatível com deploy em plataformas como Vercel, Netlify ou qualquer host estático que suporte apps geradas por Vite.
+
+* No Vercel: basta criar um novo projeto apontando para este repositório. Comando de build: `npm run build` e pasta de saída: `dist`.
+* Configurar variáveis de ambiente (VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY) no painel do provedor.
+
+---
+
+## Boas práticas e dicas
+
+* Não comite chaves secretas — use `.env` e adicione ao `.gitignore`.
+* Se for ampliar o backend, mantenha migrations/seeders na pasta `supabase` para versionamento.
+* Teste rotas de API localmente com `preview` antes de publicar.
+
+---
+
+## Contribuição
+
+Contribuições são bem-vindas. Sugestão de fluxo:
+
+1. Fork este projeto.
+2. Crie uma branch: `feature/nome-da-feature`.
+3. Abra um Pull Request descrevendo as mudanças.
